@@ -1,0 +1,31 @@
+var express = require('express')
+
+var router = express.Router()
+
+
+var {regStdService, getStdService}= require("../services/studentService")
+
+//http://localhost:2020/stdCtl/reg-std
+// post
+
+router.post('/reg-std',function(req,res){ // receive the request
+    // take data from request
+    console.log('get reg controller')
+    regStdService()
+    res.send("executed")
+    // console.log("executed")
+
+})
+
+//http://localhost:2020/stdCtl/get-std
+// get
+
+router.get("/get-std", function (req,res) {// receive the request
+    // take data from request
+    console.log('get-std controller')
+   getStdService()
+    res.send("executed get-std")
+    // console.log("executed get-std")
+})
+
+module.exports = router;
